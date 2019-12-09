@@ -1,0 +1,25 @@
+{
+  "name": "task-queue",
+  "version": "1.0.0",
+  "description": "Execute tasks consecutive while still being able to await",
+  "main": "src/task-queue.js",
+  "author": "Håkan Olsson",
+  "license": "MIT",
+  "devDependencies": {
+    "esm": "^3.0.62"
+  },
+  "scripts": {
+    "test": "node -r esm test/test-task-queue.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakanols/task-queue.git"
+  },
+  "keywords": [
+    "queue",
+    "task",
+    "promise",
+    "concurrently"
+  ],
+  "homepage": "https://github.com/hakanols/task-queue"
+}
