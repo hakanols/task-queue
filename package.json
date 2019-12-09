@@ -1,5 +1,5 @@
 {
-  "name": "task-queue",
+  "name": "await-task-queue",
   "version": "1.0.0",
   "description": "Execute tasks consecutive while still being able to await",
   "main": "src/task-queue.js",
