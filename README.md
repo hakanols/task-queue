@@ -1,5 +1,5 @@
 # Why
-Simple task queue that execute tasks consecutive but each add can be awaited to know when the added task is executed and get return data.
+Simple task queue that execute tasks consecutive but each add can be awaited to know when the added task is executed and get return data. A promise start to excecute when it is created that is why the promise itself is created by the queue.
 
 # Example
 
