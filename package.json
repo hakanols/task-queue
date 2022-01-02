@@ -5,11 +5,10 @@
   "main": "src/task-queue.js",
   "author": "Håkan Olsson",
   "license": "MIT",
-  "devDependencies": {
-    "esm": "^3.0.62"
-  },
+  "type": "module",
   "scripts": {
-    "test": "node -r esm test/test-task-queue.js"
+    "test": "node test/test.js",
+    "browser": "node test/browser-quick-start.js /test/runJs.html?file=test.js"
   },
   "repository": {
     "type": "git",
