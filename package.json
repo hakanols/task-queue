@@ -1,6 +1,6 @@
 {
   "name": "await-task-queue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Execute tasks consecutive while still being able to await",
   "main": "src/task-queue.js",
   "author": "Håkan Olsson",
