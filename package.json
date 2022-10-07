@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "test": "node test/test.js",
-    "browser": "node test/browser-quick-start.js /test/runJs.html?file=test.js"
+    "browser": "node test/browser-quick-start.mjs /test/runJs.html?file=test.js"
   },
   "repository": {
     "type": "git",
