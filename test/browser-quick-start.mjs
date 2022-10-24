@@ -1,5 +1,15 @@
 #!/usr/bin/env node
-// https://github.com/hakanols/browser-quick-start
+/***********************************
+Source: https://github.com/hakanols/browser-quick-start
+
+Standalone program that distribute static webpages as a local web server and open a 
+browser to that page. This to void "Cross-Origin" problems with ES6 and  simplifying
+development. No dependencies except NodeJS v12. Should work on Windows, Linux and MAC.
+
+How to use:
+Just copy browser-quick-start.mjs to your project and run with node. E.g.
+> node browser-quick-start.mjs /test/hello.html
+***********************************/
 
 import fs from 'fs';
 import http from 'http';
@@ -59,34 +69,21 @@ function handleRequest(req, res) {
     });
 }
 
-async function open(target, appName) {
+async function open(target) {
     // Started with code from https://github.com/pwnall/node-open
     let opener;
-
+    
     switch (process.platform) {
     case 'darwin':
-        if (appName) {
-            opener = 'open -a "' + escape(appName) + '"';
-        } else {
-            opener = 'open';
-        }
+        opener = 'open';
         break;
     case 'win32':
         // if the first parameter to start is quoted, it uses that as the title
         // so we pass a blank title so we can quote the file we are opening
-        if (appName) {
-            opener = 'start "" "' + escape(appName) + '"';
-        } else {
-            opener = 'start ""';
-        }
+        opener = 'start ""';
         break;
     default:
-        if (appName) {
-            opener = escape(appName);
-        } else {
-            // use Portlands xdg-open everywhere else
-            opener = path.join(path.resolve(), '../vendor/xdg-open');
-        }
+        opener = 'xdg-open ';
         break;
     }
 
@@ -94,12 +91,7 @@ async function open(target, appName) {
         opener = 'sudo -u ' + process.env.SUDO_USER + ' ' + opener;
     }
     console.log(target)
-    console.log(escape(target))
-    return execSync(opener + ' "' + escape(target) + '"');
-}
-
-function escape(s) {
-    return s.replace(/"/g, '\\\"');
+    return execSync(opener + ' "' + target.replace(/"/g, '\\\"') + '"');
 }
 
 function hashString(text){
@@ -123,7 +115,7 @@ async function start(){
         return;
     }
     const url = process.argv[2];
-    const [path, params] = url.split('?')
+    const [path, _] = url.split('?')
     if (!fs.existsSync('.'+path)){
         console.log("No file ");
         return;
